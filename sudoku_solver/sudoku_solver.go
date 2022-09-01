@@ -124,35 +124,11 @@ func Start_solver(puzzle string) int {
     for cell, char := range puzzle {
         if '0' <= char && char <= '9' {
             digit = int(char) - 48 // 48 == '0'
-            b := byte(char)
-            fmt.Printf("cell=%2d b=%v\n", b)
             place(digit, cell, sudoku_constants.Powers[cell])
         }
     }
 
-    // do the job at hand
-    /*
-    if DEBUG > 1 {
-        sum := 0
-        for d := 1; d <= Nine; d++ {
-            count := locations[d].OnesCount()
-            fmt.Printf("count of %d is %2d\n", d, count)
-            sum += count
-        }
-        fmt.Printf("number of candidates is %3d\n", sum)
-    }
-    */
     Solve()
-    /*
-    if DEBUG > 1 {
-        sum := 0
-        for d := 1; d <= Nine; d++ {
-            count := locations[d].OnesCount()
-            fmt.Printf("count of %d is %2d\n", d, count)
-            sum += count
-        }
-        fmt.Printf("number of candidates is %3d\n", sum)
-    }*/
     return count_content()
 }
 
