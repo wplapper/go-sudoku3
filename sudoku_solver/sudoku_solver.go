@@ -124,7 +124,7 @@ func Start_solver(puzzle string) int {
     for cell, char := range puzzle {
         if '0' <= char && char <= '9' {
             digit = int(char) - 48 // 48 == '0'
-            b := []byte(char)
+            b := byte(char)
             fmt.Printf("cell=%2d b=%v\n", b)
             place(digit, cell, sudoku_constants.Powers[cell])
         }
